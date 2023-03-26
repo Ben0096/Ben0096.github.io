@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Covers</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <meta name="description" content="Covers">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <div class="bg-image"></div>
+    <body>
+        <div class="player">
+
+            <!-- song details -->
+            
+            <div class="details">
+                <div class="track-art"></div>
+                <div class="track-name">Error loading Track Name</div>
+                <div class="track-artist">Error loading Track Artist</div>
+            </div>
+            
+            <!-- seek_slider-->
+
+            <div class="slider_container">
+                <div class="current-time">00:00</div>
+                <input type="range" min="0" max="1000"
+                    value="0" class="seek_slider" onchange="seekChange()" oninput="seekInput()" onmousedown="seekMouseDown()">
+                <div class="total-duration">00:00</div>
+            </div>
+
+            <!-- track buttons -->
+
+            <div class="buttons">
+                <div class="prev-track" onclick="prevTrack()">
+                    <i class="prev-track-button"></i>
+                </div>
+                <div class="jump-back" onclick="jumpBack()">
+                    <i class="jump-back-button"></i>
+                </div>
+                <div class="playpause-track" onclick="playpauseTrack()">
+                    <i class="play-button"></i>
+                </div>
+                <div class="jump-forward" onclick="jumpForward()">
+                    <i class="jump-forward-button"></i>
+                </div>
+                <div class="next-track" onclick="nextTrack()">
+                    <i class="next-track-button"></i>
+                </div>
+            </div>
+
+            <!-- volume_slider-->
+
+            <div class="slider_container">
+                <i class="volume-down"></i>
+                <input type="range" min="0" max="100"
+                    value="100" class="volume_slider" onchange="setVolume()">
+                <i class="volume-up"></i>
+            </div>
+        </div>
+        
+        <script src="tracklist.js"></script>
+        <script src="player.js"></script>
+    </body>
+</html>
