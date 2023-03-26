@@ -6,3 +6,226 @@ table, th, tr {
 audio {
   display: block;
 }
+
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+.bg-image {
+    z-index: -1;
+    position: fixed;
+    left: -30px;
+    top: -30px;
+    width: 110%;
+    height: 110%;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+    background: grey;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -o-transition: all .8s;
+    transition: all .8s;
+}
+
+/* Using flex with the column direction to
+   align items in a vertical direction */
+.player {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.track-art {
+    margin: 25px;
+    height: 250px;
+    width: 250px;
+    background-size: cover;
+    background-position: center;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2); 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    border-radius: 2%;
+    
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -o-transition: all .8s;
+    transition: all .8s;
+}
+
+/* Changing the font sizes to suitable ones */
+.now-playing {
+    font-size: 1rem;
+}
+
+.track-name {
+    font-size: 3rem;
+}
+
+.track-artist {
+    font-size: 1.5rem;
+}
+
+/* Using flex with the row direction to
+   align items in a horizontal direction */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.play-button,
+.pause-button,
+.next-track-button,
+.prev-track-button,
+.jump-back-button,
+.jump-forward-button  {
+    margin: 2px 5px;
+    opacity: 0.4;
+    
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    background-size: 30px;
+    
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
+    -moz-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
+    -o-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
+    filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
+
+    /* Smoothly transition the opacity */
+    -webkit-transition: opacity .1s;
+    -moz-transition: opacity .1s;
+    -o-transition: opacity .1s;
+    transition: opacity .1s;
+}
+
+/* Change the opacity when mouse is hovered */
+.play-button:hover,
+.pause-button:hover,
+.next-track-button:hover,
+.prev-track-button:hover,
+.jump-back-button:hover,
+.jump-forward-button:hover,
+.seek_slider:hover,
+.volume_slider:hover {
+    opacity: 1.0;
+}
+
+/* Define the slider width so that it scales properly */
+.slider_container {
+    width: 75%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seek_slider,
+.volume_slider {
+    background: black;
+    opacity: 0.6;
+}
+
+/*
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+    background: white;
+    cursor: pointer;
+}
+*/
+
+.seek_slider {
+    width: 60%;
+}
+
+.volume_slider {
+    width: 30%;
+}
+
+.current-time,
+.total-duration {
+    padding: 10px;
+}
+
+i.volume-down,
+i.volume-up {
+    padding: 10px;
+}
+
+.play-button {
+    background-image: URL('glyphs/play.svg');
+}
+
+.pause-button {
+    background-image: URL('glyphs/pause.svg');
+}
+
+.next-track-button {
+    background-image: URL('glyphs/step-forward.svg');
+    background-size: 20px;
+}
+
+.prev-track-button {
+    background-image: URL('glyphs/step-backward.svg');
+    background-size: 20px;
+}
+
+.jump-back-button {
+    background-image: URL('glyphs/rotate-left.svg')
+}
+
+.jump-forward-button {
+    background-image: URL('glyphs/rotate-right.svg')
+}
+
+.volume-up,
+.volume-down {
+    margin: 2px 5px;
+    opacity: 0.4;
+    
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    -webkit-transition: opacity .2s;
+    -moz-transition: opacity .2s;
+    -o-transition: opacity .2s;
+    transition: opacity .2s;
+}
+
+.volume-up {
+    background-image: URL('glyphs/volume-high.svg');
+    background-size: 20px;
+}
+
+.volume-down {
+    background-image: URL('glyphs/volume-off.svg');
+    background-size: 10px;
+}
+
+i.play-button,
+i.pause-button,
+i.next-track-button,
+i.prev-track-button {
+    cursor: pointer;
+}
