@@ -8,7 +8,7 @@ let track_list = [
     {
         name: "Good Day",
         artist: "Twenty One Pilots",
-        image: "Scaled and Icy.png",
+        image: "Scaled%20and%20Icy.png",
         path: "Good Day.004.m4a"
     },
     {
