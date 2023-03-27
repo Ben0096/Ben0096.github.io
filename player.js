@@ -21,8 +21,8 @@ document.body.addEventListener("keydown", (e) => {
         jumpBack();
     } else if (e.keyCode == 39) {
         jumpForward();
-    } 
-//    else console.log(`down:  key: ${e.key}, code: ${e.keyCode}\n`);
+    }
+    //    else console.log(`down:  key: ${e.key}, code: ${e.keyCode}\n`);
 });
 
 // create an audio tag for the player
@@ -49,6 +49,8 @@ function onmetadata() {
 }
 
 function loadTrack(track_index) {
+    
+    document.title = track_list[track_index].name;
 
     curr_track_duration = 0;
     clearInterval(updateTimer);
@@ -100,8 +102,19 @@ function resetDisplay() {
     seek_slider.value = 0;
 }
 
+function resetTrack() {
+    curr_track.currentTime = 0;
+    curr_time.textContent = "00:00";
+    seek_slider.value = 0;
+}
+
 function nextTrack() {
     if (!track_list.length) return;
+    if (track_list.length == 1) {
+        pauseTrack();
+        resetTrack();
+        return;
+    }
     resetDisplay();
 
     // increment track_index
@@ -115,9 +128,7 @@ function nextTrack() {
 
 function prevTrack() {
     if (curr_track_duration && .011 < curr_track.currentTime / curr_track_duration) { // jump to beginning of track
-        curr_track.currentTime = 0;
-        curr_time.textContent = "00:00";
-        seek_slider.value = 0;
+        resetTrack();
     } else { // change to previous track
         resetDisplay();
 
@@ -187,6 +198,10 @@ function setVolume() {
     curr_track.volume = volume_slider.value / 100;
 }
 
+if (track_list.length == 1) {
+    document.querySelector(".prev-track-button").className = "";
+    document.querySelector(".next-track-button").className = "";
+}
 
 // load the first track
 loadTrack(track_index);
