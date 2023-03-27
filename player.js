@@ -53,7 +53,7 @@ function loadTrack(track_index) {
     document.title = track_list[track_index].name;
 
     curr_track_duration = 0;
-    clearInterval(updateTimer);
+    stopUpdateTimer()
     updateSeek();
 
     // load track
@@ -68,11 +68,20 @@ function loadTrack(track_index) {
     track_name.textContent = track_list[track_index].name;
     track_artist.textContent = track_list[track_index].artist;
 
-    // update the track slider every .5 seconds
-    updateTimer = setInterval(updateSeek, 500);
+    startUpdateTimer();
 
     // when curr_track ends, nextTrack()
     curr_track.addEventListener("ended", nextTrack);
+}
+
+function startUpdateTimer() {
+    
+    // update the track slider every .5 seconds
+    updateTimer = setInterval(updateSeek, 500);
+}
+
+function stopUpdateTimer() {
+    clearInterval(updateTimer);
 }
 
 function playpauseTrack() {
@@ -86,6 +95,8 @@ function playTrack() {
     isPlaying = true;
 
     playpause_btn.className = "pause-button";
+    
+    if (!updateTimer) startUpdateTimer();
 }
 
 function pauseTrack() {
@@ -156,13 +167,13 @@ function jumpForward() {
 
 function seekMouseDown() {
     if (isPlaying) curr_track.pause();
-    clearInterval(updateTimer);
+    stopUpdateTimer();
 }
 
 function seekChange() {
     curr_track.currentTime = curr_track_duration * seek_slider.value / 1000;
     if (isPlaying) curr_track.play();
-    updateTimer = setInterval(updateSeek, 500);
+    startUpdateTimer();
 }
 
 function seekInput() {
