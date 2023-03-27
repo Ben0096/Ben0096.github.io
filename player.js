@@ -12,7 +12,10 @@ let total_duration = document.querySelector(".total-duration");
 
 let track_index = 0;
 let isPlaying = false;
-let updateTimer;
+let updateTimer = false;
+
+seek_slider.addEventListener("touchend", seekChange);
+seek_slider.addEventListener("mouseup", seekChange);
 
 document.body.addEventListener("keydown", (e) => {
     if (e.keyCode == 32) {
@@ -49,7 +52,7 @@ function onmetadata() {
 }
 
 function loadTrack(track_index) {
-    
+
     document.title = track_list[track_index].name;
 
     curr_track_duration = 0;
@@ -75,13 +78,13 @@ function loadTrack(track_index) {
 }
 
 function startUpdateTimer() {
-    
     // update the track slider every .5 seconds
-    updateTimer = setInterval(updateSeek, 500);
+    if (!updateTimer) updateTimer = setInterval(updateSeek, 500);
 }
 
 function stopUpdateTimer() {
     clearInterval(updateTimer);
+    updateTimer = false;
 }
 
 function playpauseTrack() {
@@ -95,8 +98,8 @@ function playTrack() {
     isPlaying = true;
 
     playpause_btn.className = "pause-button";
-    
-    if (!updateTimer) startUpdateTimer();
+
+    startUpdateTimer();
 }
 
 function pauseTrack() {
@@ -129,9 +132,7 @@ function nextTrack() {
     resetDisplay();
 
     // increment track_index
-    if (track_index < track_list.length - 1)
-        track_index += 1;
-    else track_index = 0;
+        track_index = ++track_index % track_list.length;
 
     loadTrack(track_index);
     if (isPlaying) playTrack();
