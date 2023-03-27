@@ -1,12 +1,3 @@
-table, th, tr {
-  display: block;
-  width: 95%;
-}
-
-audio {
-  display: block;
-}
-
 * {
     font-family: sans-serif;
 }
@@ -83,8 +74,7 @@ body {
     font-size: 1.5rem;
 }
 
-/* Using flex with the row direction to
-   align items in a horizontal direction */
+/*put buttons in a row*/
 .buttons {
     display: flex;
     flex-direction: row;
@@ -97,6 +87,8 @@ body {
 .prev-track-button,
 .jump-back-button,
 .jump-forward-button  {
+    cursor: pointer;
+    
     margin: 2px 5px;
     opacity: 0.4;
     
@@ -142,6 +134,7 @@ body {
 
 .seek_slider,
 .volume_slider {
+    cursor: pointer;
     background: black;
     opacity: 0.6;
 }
@@ -221,11 +214,4 @@ i.volume-up {
 .volume-down {
     background-image: URL('glyphs/volume-off.svg');
     background-size: 10px;
-}
-
-i.play-button,
-i.pause-button,
-i.next-track-button,
-i.prev-track-button {
-    cursor: pointer;
 }
