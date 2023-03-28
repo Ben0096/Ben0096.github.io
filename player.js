@@ -16,7 +16,8 @@ let updateTimer = false;
 
 seek_slider.addEventListener("touchend", seekChange);
 seek_slider.addEventListener("mouseup", seekChange);
-volume_slider.addEventListener("touchend", setVolume);
+//volume_slider.addEventListener("touchend", setVolume);
+volume_slider.addEventListener("mouseup", setVolume);
 
 document.body.addEventListener("keydown", (e) => {
     if (e.keyCode == 32) {
