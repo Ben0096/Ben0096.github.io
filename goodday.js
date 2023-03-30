@@ -1,4 +1,4 @@
-let track_list = [
+track_list.push(
     {
         name: "Good Day v4",
         artist: "Twenty One Pilots",
@@ -11,4 +11,4 @@ let track_list = [
         image: "Scaled%20and%20Icy.png",
         path: "Good Day.002.m4a"
     }
-];
+);
