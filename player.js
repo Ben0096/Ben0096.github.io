@@ -211,8 +211,8 @@ function updateSeek() {
 }
 
 function setVolume() {
-    document.querySelector(".volume-down").textContent = volume_slider.value;
-    curr_track.volume = volume_slider.value / 100;
+    document.querySelector(".volume-down").textContent = volume_slider.value / 100.0;
+    curr_track.volume = volume_slider.value / 100.0;
 }
 
 if (track_list.length == 1) {
