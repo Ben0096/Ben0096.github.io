@@ -95,13 +95,15 @@ function playpauseTrack() {
 }
 
 function playTrack() {
+    if (curr_track.readyState != 4) {
+        setTimeout(playTrack, 500);
+    } else {
+        curr_track.play();
+        isPlaying = true;
+        playpause_btn.className = "pause-button";
 
-    curr_track.play();
-    isPlaying = true;
-
-    playpause_btn.className = "pause-button";
-
-    startUpdateTimer();
+        startUpdateTimer();
+    }
 }
 
 function pauseTrack() {
@@ -209,6 +211,7 @@ function updateSeek() {
 }
 
 function setVolume() {
+    document.querySelector(".volume-down").textContent = volume_slider.value;
     curr_track.volume = volume_slider.value / 100;
 }
 
