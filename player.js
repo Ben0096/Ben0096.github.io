@@ -16,7 +16,6 @@ let updateTimer = false;
 
 seek_slider.addEventListener("touchend", seekChange);
 seek_slider.addEventListener("mouseup", seekChange);
-//volume_slider.addEventListener("touchend", setVolume);
 volume_slider.addEventListener("mouseup", setVolume);
 
 document.body.addEventListener("keydown", (e) => {
@@ -168,8 +167,6 @@ function jumpForward() {
     updateSeek();
 }
 
-
-
 function seekMouseDown() {
     if (isPlaying) curr_track.pause();
     stopUpdateTimer();
@@ -211,7 +208,6 @@ function updateSeek() {
 }
 
 function setVolume() {
-    document.querySelector(".volume-down").textContent = volume_slider.value / 100.0;
     curr_track.volume = volume_slider.value / 100.0;
 }
 
