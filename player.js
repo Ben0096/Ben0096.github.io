@@ -94,7 +94,7 @@ function playpauseTrack() {
 }
 
 function playTrack() {
-    if (curr_track.readyState != 4) {
+    if (curr_track.readyState != 3 && curr_track.readyState != 4) {
         setTimeout(playTrack, 500);
     } else {
         curr_track.play();
