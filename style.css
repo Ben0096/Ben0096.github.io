@@ -117,10 +117,10 @@ body {
     width: 50px;
     background-size: 30px;
     
-    -webkit-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
-    -moz-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
-    -o-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
-    filter: drop-shadow(0px 0px 5px rgb(255,255,255, .1));
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .75));
+    -moz-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .75));
+    -o-filter: drop-shadow(0px 0px 5px rgb(255,255,255, .75));
+    filter: drop-shadow(0px 0px 5px rgb(255,255,255, .75));
 
     /* Smoothly transition the opacity */
     -webkit-transition: opacity .1s;
